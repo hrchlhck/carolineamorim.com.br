@@ -1,4 +1,4 @@
-(function() {
+document.addEventListener('DOMContentLoaded', function() {
   // Configurações centralizadas
   const CONFIG = {
     BASE_DELAY: 200,
@@ -64,4 +64,22 @@
       observer.observe(el);
     });
   };
+const accordionItems = document.querySelectorAll(".accordion-item");
+
+accordionItems.forEach((item) => {
+  const header = item.querySelector(".accordion-header");
+
+  header.addEventListener("click", () => {
+    // Fecha os outros itens
+    accordionItems.forEach((otherItem) => {
+      if (otherItem !== item) {
+        otherItem.classList.remove("active");
+      }
+    });
+
+    // Alterna o item clicado
+    item.classList.toggle("active");
+  });
+});
+
 })();
