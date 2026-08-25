@@ -93,6 +93,18 @@ body {
     font-weight: 600;
 }
 
+.menu-toggle {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    font-size: 2rem;
+    color: #333;
+
+    cursor: pointer;
+}
+
 /* Coluna dos links */
 .navbar-links {
     display: flex;
@@ -118,6 +130,37 @@ body {
 
 .navbar-links a:hover {
     color: #8a6f5a;
+}
+
+.navbar-links li {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-links.active li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.navbar-links.active li:nth-child(1) {
+    transition-delay: 0.05s;
+}
+
+.navbar-links.active li:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.navbar-links.active li:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+.navbar-links.active li:nth-child(4) {
+    transition-delay: 0.2s;
+}
+
+.navbar-links.active li:nth-child(5) {
+    transition-delay: 0.25s;
 }
 
 
@@ -365,4 +408,85 @@ hr {
     margin-left: var(--margin-left);
     margin-right: var(--margin-right);
   }
+
+  .foot p {
+    font-size: smaller;
+  }
+
+  .navbar {
+        height: 70px;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 0 5%;
+    }
+
+    .navbar-logo a {
+        font-size: 1rem;
+    }
+
+    /* Botão */
+    .menu-toggle {
+        display: block;
+
+        border: none;
+        background: transparent;
+
+        font-size: 2rem;
+        color: #333;
+
+        cursor: pointer;
+
+        z-index: 1001;
+    }
+
+    /* Menu fechado */
+    .navbar-links {
+        position: absolute;
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0;
+        margin: 0;
+        padding: 10px 0;
+
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+        /* Animação */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-15px);
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+    }
+
+    /* Menu aberto */
+    .navbar-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .navbar-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links a {
+        display: block;
+        width: 100%;
+        padding: 15px 0;
+    }
 }
