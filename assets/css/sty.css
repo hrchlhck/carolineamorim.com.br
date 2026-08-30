@@ -18,6 +18,7 @@
     --margin-right: 6.1em;
     --foot-head-height: 4em;
     --foot-head-margin: 5em;
+    --head-top: 10em;
     --flex-direction-nav: row;
 
     /* Paleta */
@@ -47,7 +48,7 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: fallback;
     scroll-padding-top: 115px;
 }
 
@@ -165,7 +166,7 @@ body {
 
 
 .content {
-    margin-top: var(--foot-head-margin);
+    margin-top: var(--head-top);
     text-align: center; 
 }
 
@@ -256,12 +257,12 @@ hr {
 
 .column {
     flex: 1;
+    flex-direction: column;
 }
 
 .right {
     margin-left: auto;
     margin-right: 0;
-    text-align: right;
 }
 
 .accordion {
@@ -364,6 +365,71 @@ hr {
   transform: rotate(45deg);
 }
 
+.contact-row {
+  display: flex;
+  align-items: center;      /* ou flex-start, se o texto quebrar em várias linhas */
+  gap: 10px;
+  margin-bottom: 16px;
+  margin-left: var(--margin-left);
+  margin-right: var(--margin-right);
+}
+
+.contact-row::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-row .info {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.contact-row[id*="contato"]::before {
+  background-image: url("../images/icons/whatsapp.svg");
+}
+
+.contact-row[id*="email"]::before {
+  background-image: url("../images/icons/mail.svg");
+}
+
+.contact-row[id*="endereco"]::before {
+  background-image: url("../images/icons/location.svg");
+}
+
+.vertical-bar {
+    border-width: 1px;
+    border: black;
+    border-radius: 1px;
+}
+
+.image-style {
+    max-width: 50%;
+    margin-left: var(--margin-left);
+    margin-right: var(--margin-right);
+    border: 5px solid;
+    border-image: linear-gradient(to right, transparent, #333 50%, transparent) 1; 
+}
+
+.image-blocked {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE10+/Edge */
+  user-select: none;         /* Standard syntax */
+
+  /* Prevent image dragging (ghost image) */
+  -webkit-user-drag: none;
+  pointer-events: none;
+  user-select: none;
+}
+
 /* Responsividade */
 @media (max-width: 1200px) {
     :root {
@@ -409,8 +475,24 @@ hr {
     margin-right: var(--margin-right);
   }
 
+  .flex-container {
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 2em;
+  }
+
+  .flex-container .column {
+    width: 100%;
+  }
+
+  .flex-container .right {
+    text-align: right; 
+  }
+
   .foot p {
-    font-size: smaller;
+    margin-left: var(--margin-left);
+    margin-right: var(--margin-right);
+    text-align: left;
   }
 
   .navbar {
@@ -488,5 +570,23 @@ hr {
         display: block;
         width: 100%;
         padding: 15px 0;
+    }
+
+    .contact-row {
+    align-items: flex-start;
+        margin-left: var(--margin-left);
+        margin-right: var(--margin-right);
+        flex-direction: row;
+    }
+
+    .contact-row::before {
+        margin-top: 3px;
+    }
+
+    .image-style {
+        max-width: 75%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }

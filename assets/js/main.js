@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+  
   // Configurações centralizadas
   const CONFIG = {
     BASE_DELAY: 200,
@@ -93,6 +94,45 @@ menuToggle.addEventListener('click', () => {
         navbarLinks.classList.remove('active');
       })
     });
+
+    document.documentElement.style.scrollBehavior = "auto";
 });
 
-})();
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if(target){
+        const targetY = target.getBoundingClientRect().top + window.scrollY - 115;
+        smoothScroll(targetY);
+      }
+    });
+});
+
+});
+const duration = 1500;
+const easing = t => t < 0.5 
+  ? 4 * t * t * t 
+  : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+function smoothScroll(targetY) {
+  let start = window.scrollY;
+  let distance = targetY - start;
+  let startTime = null;
+  
+  function step(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    let elapsed = currentTime - startTime;
+    let progress = Math.min(elapsed / duration, 1);
+    let eased = easing(progress);
+
+    window.scrollTo(0, start + distance * eased);
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
