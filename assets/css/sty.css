@@ -110,7 +110,7 @@ body {
 .navbar-links {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 65px;
 
     margin: 0;
     padding: 0;
@@ -142,6 +142,18 @@ body {
 .navbar-links.active li {
     opacity: 1;
     transform: translateY(0);
+}
+
+.navbar-links li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: -30.5px; /* metade do gap, pra ficar centralizada entre os links */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background-color: #333;
+  opacity: 0.3;
 }
 
 .navbar-links.active li:nth-child(1) {
