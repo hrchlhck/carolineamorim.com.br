@@ -433,8 +433,8 @@ hr {
 /* Responsividade */
 @media (max-width: 1200px) {
     :root {
-        --margin-left: 50px;
-        --margin-right: 50px;
+        --margin-left: 40px;
+        --margin-right: 40px;
     }
 
   .accordion {
@@ -573,7 +573,7 @@ hr {
     }
 
     .contact-row {
-    align-items: flex-start;
+        align-items: flex-start;
         margin-left: var(--margin-left);
         margin-right: var(--margin-right);
         flex-direction: row;
