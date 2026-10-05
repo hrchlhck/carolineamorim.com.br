@@ -1,161 +1,269 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=100%, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/sty.css">
-    <script src="assets/js/main.js"></script>
-    <title>Caroline Amorim</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Caroline Amorim · Psicóloga Clínica</title>
+<meta name="description" content="Caroline Amorim, psicóloga clínica em Curitiba/PR. Psicoterapia individual para adultos, presencial e online, com foco em TEA, TDAH, AH/SD, ansiedade e depressão.">
+<link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Allura&family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Didact+Gothic&display=swap" rel="stylesheet">
+<style>
+:root{--v:#7B2D35;--m:#1F2A44;--a:#D9A382;--o:#737552;--s:#A3A585;--l:#EAE2D8;--w:#F2F0EC;--t:#726866}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Didact Gothic',sans-serif;color:var(--m);background:var(--w);line-height:1.65;font-size:16.5px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+.al{font-family:'Allura',cursive;line-height:1}
+.gd{font-family:'Gilda Display',serif}
+.kick{font-size:12px;letter-spacing:.38em;text-transform:uppercase;color:var(--v)}
+h2{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(32px,5vw,46px);line-height:1.1}
+h2 i{color:var(--v)}
+section{padding:clamp(64px,9vw,110px) 0}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:40px;font-size:15px;letter-spacing:.03em;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)}
+.btn svg{width:18px;height:18px}
+.ph{position:relative;overflow:hidden}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+
+header{position:sticky;top:0;z-index:20;background:rgba(242,240,236,.92);backdrop-filter:blur(8px);border-bottom:1px solid #e3dbd0}
+.hd{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;gap:8px;color:var(--v)}
+.logo svg{width:44px;height:44px}
+.logo .gd{font-size:21px;line-height:1;color:var(--m)}
+.logo .al{font-size:19px}
+nav{display:flex;gap:28px;font-size:14px;letter-spacing:.05em}
+nav a:hover{color:var(--v)}
+@media(max-width:860px){nav{display:none}}
+
+/* início */
+.hero{background:var(--l);position:relative;overflow:hidden;padding:clamp(56px,8vw,96px) 0}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero .who{font-family:'Gilda Display',serif;font-size:20px;color:var(--m)}
+.hero .who span{font-family:'Allura',cursive;font-size:30px;color:var(--v);margin-left:4px}
+.hero h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:400;font-size:clamp(34px,5vw,54px);line-height:1.12;margin:20px 0 20px;color:var(--v)}
+.hero p{max-width:520px;font-size:17.5px}
+.hero .ctas{margin-top:30px}
+.arch{aspect-ratio:4/5;border-radius:240px 240px 12px 12px;background:var(--s)}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.arch{max-width:360px;margin:0 auto;width:100%}}
+
+.intro .txt{max-width:780px;margin:0 auto;position:relative}
+.intro p{font-size:17.5px}
+.intro p+p{margin-top:18px}
+
+.serv{background:#fff}
+.serv .grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.serv .ph{aspect-ratio:3/4;border-radius:12px;background:var(--a)}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:28px}
+.c{background:var(--w);border:1px solid #e3dbd0;border-radius:12px;padding:20px}
+.c svg{width:24px;height:24px;color:var(--v)}
+.c .kick{font-size:10.5px;margin:10px 0 4px}
+.c p{font-size:15px;line-height:1.45}
+@media(max-width:860px){.serv .grid{grid-template-columns:1fr}.serv .ph{max-width:380px;width:100%}}
+@media(max-width:520px){.cards{grid-template-columns:1fr}}
+
+.areas{background:var(--v);color:var(--l);border-radius:18px;padding:clamp(28px,5vw,56px);margin-top:clamp(56px,8vw,90px);position:relative;overflow:hidden}
+.areas h3{font-family:'Playfair Display',serif;font-weight:400;font-size:clamp(28px,4vw,40px);line-height:1.05}
+.areas h3 span{display:block;font-family:'Allura',cursive;font-size:clamp(30px,4vw,40px);color:var(--a)}
+.areas .cols{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:34px;position:relative}
+.areas ol{list-style:none;counter-reset:n}
+.areas li{counter-increment:n;padding:11px 0;border-bottom:1px solid rgba(234,226,216,.2);display:flex;gap:14px}
+.areas li::before{content:counter(n,decimal-leading-zero);color:var(--a);font-size:12px;padding-top:3px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid rgba(234,226,216,.4);border-radius:30px;padding:7px 14px;font-size:13.5px}
+.areas .lb{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--a);margin-bottom:10px}
+@media(max-width:760px){.areas .cols{grid-template-columns:1fr;gap:30px}}
+
+.sobre{background:var(--l)}
+.sobre .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.sobre .ph{aspect-ratio:4/5;border-radius:12px 240px 12px 12px;background:var(--o)}
+.sobre .ph img{object-position:center top}
+.sobre p+p{margin-top:16px}
+.sobre b{color:var(--v);font-weight:700}
+@media(max-width:860px){.sobre .grid{grid-template-columns:1fr}.sobre .ph{order:-1;max-width:380px;width:100%}}
+
+details{border-bottom:1px solid #d8cfc4;padding:20px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:'Playfair Display',serif;font-size:21px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--v);font-size:26px;line-height:1;transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:12px;max-width:780px;color:#3d4254}
+details b{color:var(--v)}
+
+.cta{background:var(--a);color:var(--m);border-radius:18px;padding:clamp(44px,7vw,80px) 24px;text-align:center;position:relative;overflow:hidden}
+.cta h2 i{color:var(--v)}
+.cta .petal{position:absolute;width:200px;height:200px;opacity:.22;color:var(--v)}
+
+footer{background:var(--o);color:var(--l);padding:56px 0 30px;margin-top:clamp(64px,9vw,110px)}
+.ft{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:36px}
+.ft .gd{font-size:26px;line-height:1}
+.ft .al{font-size:26px}
+.ft p,.ft li{font-size:14.5px}
+.ft ul{list-style:none;display:grid;gap:9px}
+.ft li{display:flex;gap:10px;align-items:flex-start}
+.ft li svg{width:16px;height:16px;flex:none;margin-top:3px}
+.ft .lb{font-size:11px;letter-spacing:.3em;text-transform:uppercase;opacity:.8;margin-bottom:12px}
+.copy{border-top:1px solid rgba(234,226,216,.25);margin-top:40px;padding-top:20px;font-size:12.5px;opacity:.8;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+@media(max-width:760px){.ft{grid-template-columns:1fr}}
+
+.wa{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;background:var(--v);color:var(--l);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(0,0,0,.25);z-index:30}
+.wa svg{width:28px;height:28px}
+.fade{opacity:0;transform:translateY(18px);transition:opacity .8s,transform .8s}
+.fade.on{opacity:1;transform:none}
+</style>
 </head>
-<body id="home">
-      <nav class="navbar" id="navbar">
-    <div class="navbar-logo">
-        <a href="#home">Caroline Amorim</a>
-        <br>
-        CRP 08/48025
+<body>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+  <symbol id="lp" viewBox="0 0 200 200"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M100 36 C114 60 116 92 100 118 C84 92 86 60 100 36 Z"/><path d="M98 118 C80 108 72 86 74 58 C90 68 98 92 98 118"/><path d="M102 118 C120 108 128 86 126 58 C110 68 102 92 102 118"/><path d="M96 121 C70 117 52 96 44 70 C66 78 86 98 96 121"/><path d="M104 121 C130 117 148 96 156 70 C134 78 114 98 104 121"/><path d="M100 125 C70 132 36 122 18 100 C46 98 78 106 100 125"/><path d="M100 125 C130 132 164 122 182 100 C154 98 122 106 100 125"/></g></symbol>
+  <symbol id="l3" viewBox="0 0 200 200"><use href="#lp" width="200" height="200"/><path d="M56 136 C82 145 118 145 144 136" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="petal" viewBox="0 0 200 200"><path d="M100 10 C150 70 150 140 100 190 C50 140 50 70 100 10 Z M100 40 C92 90 92 140 100 180" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M3.6 20.4l1.3-4.1A8.6 8.6 0 1 1 8 19.3z"/><path fill="currentColor" d="M8.9 7.9c.3-.6 1-.6 1.3 0l.8 1.6c.1.3.1.6-.2.8l-.5.6c.5 1.1 1.4 2 2.6 2.6l.5-.5c.2-.3.6-.3.8-.2l1.6.8c.6.3.5 1-.1 1.3-1 .6-2.3.4-3.8-.5a8.4 8.4 0 0 1-2.6-2.6c-.9-1.5-1.1-2.8-.4-3.9z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M12 1.8a7.4 7.4 0 0 0-7.4 7.4c0 5.4 7.4 13 7.4 13s7.4-7.6 7.4-13A7.4 7.4 0 0 0 12 1.8zm0 10.3a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".8" fill="currentColor"/></g></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.8-4 3.8-6 7.5-6s6.7 2 7.5 6"/></g></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="9" cy="8.5" r="3.2"/><path d="M2.8 19.5c.7-3.4 3.2-5.2 6.2-5.2s5.5 1.8 6.2 5.2"/><circle cx="16.8" cy="7.5" r="2.6"/><path d="M16.5 12.8c2.6.2 4.3 1.8 4.8 4.4"/></g></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></g></symbol>
+  <symbol id="i-place" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></g></symbol>
+</defs></svg>
+
+<header>
+  <div class="wrap hd">
+    <a href="#inicio" class="logo"><svg><use href="#l3"/></svg><div><div class="gd">Caroline Amorim</div><div class="al">Psicóloga</div></div></a>
+    <nav><a href="#inicio">Início</a><a href="#servicos">Serviços</a><a href="#sobre">Sobre mim</a><a href="#duvidas">Dúvidas frequentes</a><a href="#contato">Contato</a></nav>
+  </div>
+</header>
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+  <svg style="position:absolute;left:-120px;top:-100px;width:420px;height:420px;opacity:.07;color:var(--v)"><use href="#l3"/></svg>
+  <div class="wrap grid">
+    <div class="fade">
+      <div class="who">Caroline Amorim <span>– Psicóloga Clínica</span></div>
+      <h1>"O sofrimento humano só é intolerável quando ninguém cuida."</h1>
+      <p>Um espaço seguro para explorar sua história, (re)encontrar-se e desenvolver ferramentas práticas para viver com mais presença.</p>
+      <div class="ctas"><a class="btn" href="https://wa.me/5541998654031" style="background:var(--v);color:var(--l)"><svg><use href="#i-wa"/></svg>Fale comigo no WhatsApp</a></div>
     </div>
+    <div class="ph arch fade"><img src="assets/images/pictures/foto1.jpg" alt="Caroline Amorim, psicóloga clínica"></div>
+  </div>
+</section>
 
-    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
-        ☰
-    </button>
+<section class="intro">
+  <div class="wrap">
+    <div class="txt fade">
+      <svg style="position:absolute;left:-60px;top:-40px;width:120px;height:120px;opacity:.18;color:var(--v);transform:rotate(-25deg)"><use href="#petal"/></svg>
+      <p>É possível aprender a viver melhor, de uma forma mais leve e sem tanto custo emocional. Meu papel é construir com você um caminho que conduza a uma vida com mais autonomia, equilibrada e tranquila, na qual seja possível ampliar a flexibilidade diante das dificuldades, usufruir do bem-estar que a vida pode proporcionar e, ao mesmo tempo, afastar-se do sofrimento.</p>
+      <p>Para isso, quero conhecer você para além da dificuldade que trouxe você à terapia: sua história, suas relações e aquilo que tem importância na sua vida. É a partir dessa compreensão que trabalharemos para construir uma vida mais significativa.</p>
+    </div>
+  </div>
+</section>
 
-    <ul class="navbar-links" id="navbar-links">
-        <li class="fade-in-up stagger-1">
-            <a href="#home">Início</a>
-        </li>
-        <li class="fade-in-up stagger-2">
-            <a href="#servicos">Serviços</a>
-        </li>
-        <li class="fade-in-up stagger-3">
-            <a href="#sobre">Sobre</a>
-        </li>
-        <li class="fade-in-up stagger-4">
-            <a href="#duvidas">Dúvidas</a>
-        </li>
-        <li class="fade-in-up stagger-5">
-            <a href="#contato">Fale Comigo</a>
-        </li>
-    </ul>
-</nav>
-
-    <div class="content fade-in-up stagger-3" id="content">
-        <div class="flex-container">
-            <div class="column">
-                <span style="font-weight: bolder; font-style: italic;">Toda história merece ser escutada com cuidado.</span>
-            </div>
-            <div class="column right">
-                <img src="assets/images/pictures/foto1.jpg" alt="Imagem 1" class="image-style image-blocked">
-            </div>
+<!-- SERVIÇOS -->
+<section class="serv" id="servicos">
+  <div class="wrap">
+    <div class="grid">
+      <div class="ph fade"><img src="assets/images/pictures/foto2.jpg" alt="Caroline Amorim" loading="lazy"></div>
+      <div class="fade">
+        <div class="kick">Serviços</div>
+        <h2 style="margin-top:10px">Como posso te <i>acompanhar</i></h2>
+        <div class="cards">
+          <div class="c"><svg><use href="#i-user"/></svg><div class="kick">Atendimento</div><p>Psicoterapia individual</p></div>
+          <div class="c"><svg><use href="#i-users"/></svg><div class="kick">Público</div><p>Pessoas acima de 18 anos</p></div>
+          <div class="c"><svg><use href="#i-globe"/></svg><div class="kick">Destinado a</div><p>Pessoas que falam português e residem no Brasil ou no exterior</p></div>
+          <div class="c"><svg><use href="#i-place"/></svg><div class="kick">Modalidade</div><p>Online e Presencial em Curitiba/PR</p></div>
         </div>
+      </div>
     </div>
 
-    <h1 class="header fade-in-up stagger-3" id="servicos">Serviços</h1>
-    <hr class="fade-in-up stagger-3">
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius nunc sit amet eros tincidunt consectetur. Donec facilisis fringilla faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec id sem eu enim pulvinar cursus sed id nunc. Nunc pharetra ultrices massa, eget scelerisque quam malesuada ut. Pellentesque a lorem urna. Cras ultricies mi lobortis augue venenatis, non accumsan purus placerat. Donec maximus volutpat porta. In finibus felis eu augue finibus tempor. Proin dictum, ligula quis tristique tincidunt, dui nisi auctor elit, a pellentesque erat dui in ligula. In at quam lobortis elit venenatis aliquam sed a dolor. Curabitur vulputate metus eget lacinia molestie. Ut facilisis metus vitae leo tincidunt volutpat eu quis magna.</p>
-        <p>Nulla a est nec nisi bibendum aliquam scelerisque venenatis nibh. Maecenas malesuada cursus feugiat. Donec vel vulputate urna, sit amet aliquam dui. Praesent feugiat neque non nibh rhoncus finibus. Donec vestibulum lacus sit amet ex finibus dapibus. Nulla quis congue est, a tempus velit. Curabitur sed justo urna.</p>
-        <p>Nam varius erat id lorem tincidunt lacinia eget non elit. Vestibulum eget arcu a risus molestie vestibulum. Cras fermentum nisl et dictum ullamcorper. Ut lobortis quam vel scelerisque egestas. Duis sed tristique mauris. Etiam commodo, mi ut laoreet vulputate, leo purus lobortis mauris, ut venenatis turpis felis eget tellus. Vivamus fringilla varius massa non tristique. Phasellus ornare, lorem at molestie vehicula, justo ante fermentum elit, vel mollis dolor ex ut lectus. Aenean nunc neque, feugiat ac ultrices in, aliquet id est. Donec tempus consequat fringilla. Phasellus tincidunt nisl vitae purus bibendum lacinia. Sed rutrum efficitur fermentum. Maecenas finibus libero sollicitudin augue rutrum malesuada. Suspendisse sit amet dapibus enim, dignissim pharetra augue.</p>
-        <p>Phasellus pellentesque commodo nisi, eget feugiat libero elementum sed. In eget enim erat. Nulla eu metus tristique, pellentesque massa a, cursus lectus. Phasellus pulvinar, libero a mattis sodales, neque purus vulputate nibh, ut aliquet sapien lorem a risus. Cras eu tristique ipsum. Sed vel pretium tortor. Maecenas porttitor varius nisl lacinia aliquet. Aenean nisl purus, imperdiet at pulvinar vitae, bibendum at orci. Suspendisse vel mi sit amet neque scelerisque cursus ac vitae velit. Aliquam efficitur sed risus et placerat. Donec accumsan magna magna, a laoreet erat bibendum sed.</p>
-        <p>Nunc cursus enim sodales sem pellentesque, a sagittis eros cursus. Nam libero ex, accumsan sit amet feugiat eu, consequat sed ligula. Aliquam eu maximus risus, a eleifend mauris. Praesent id finibus elit. Ut ac neque eleifend, vehicula massa ut, convallis ante. Donec sit amet erat vel libero rutrum vulputate eu sit amet dolor. Curabitur hendrerit nisl at libero gravida, a maximus nisi tincidunt. Morbi dictum gravida nulla. Fusce ac dignissim orci. </p>
-    
-    <h1 class="header fade-in-up stagger-3" id="sobre">Sobre Mim</h1>
-    <hr class="fade-in-up stagger-3">
+    <div class="areas fade">
+      <svg style="position:absolute;right:-80px;bottom:-80px;width:340px;height:340px;opacity:.08;color:var(--l)"><use href="#l3"/></svg>
+      <h3>Áreas &amp; temas<span>de atendimento</span></h3>
+      <div class="cols">
+        <div><div class="lb">Demandas</div>
+          <ol>
+            <li>Ansiedade</li>
+            <li>Depressão</li>
+            <li>TEA – Transtorno do Espectro Autista</li>
+            <li>Transtorno de Déficit de Atenção e Hiperatividade – TDAH</li>
+            <li>Altas Habilidades/Superdotação – AH/SD</li>
+            <li>Entre outros</li>
+          </ol>
+        </div>
+        <div><div class="lb">Temas</div>
+          <div class="chips">
+            <span class="chip">Relacionamentos pessoais</span><span class="chip">Relacionamentos familiares</span><span class="chip">Relacionamentos profissionais</span><span class="chip">Habilidades sociais</span><span class="chip">Regulação emocional</span><span class="chip">Gestão de tempo e organização</span><span class="chip">Hábitos e rotina</span><span class="chip">Autocuidado e autoestima</span><span class="chip">Perfeccionismo</span><span class="chip">Procrastinação</span><span class="chip">Saúde mental</span><span class="chip">Entre outros</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius nunc sit amet eros tincidunt consectetur. Donec facilisis fringilla faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec id sem eu enim pulvinar cursus sed id nunc. Nunc pharetra ultrices massa, eget scelerisque quam malesuada ut. Pellentesque a lorem urna. Cras ultricies mi lobortis augue venenatis, non accumsan purus placerat. Donec maximus volutpat porta. In finibus felis eu augue finibus tempor. Proin dictum, ligula quis tristique tincidunt, dui nisi auctor elit, a pellentesque erat dui in ligula. In at quam lobortis elit venenatis aliquam sed a dolor. Curabitur vulputate metus eget lacinia molestie. Ut facilisis metus vitae leo tincidunt volutpat eu quis magna.</p>
-        <p>Nulla a est nec nisi bibendum aliquam scelerisque venenatis nibh. Maecenas malesuada cursus feugiat. Donec vel vulputate urna, sit amet aliquam dui. Praesent feugiat neque non nibh rhoncus finibus. Donec vestibulum lacus sit amet ex finibus dapibus. Nulla quis congue est, a tempus velit. Curabitur sed justo urna.</p>
-        <p>Nam varius erat id lorem tincidunt lacinia eget non elit. Vestibulum eget arcu a risus molestie vestibulum. Cras fermentum nisl et dictum ullamcorper. Ut lobortis quam vel scelerisque egestas. Duis sed tristique mauris. Etiam commodo, mi ut laoreet vulputate, leo purus lobortis mauris, ut venenatis turpis felis eget tellus. Vivamus fringilla varius massa non tristique. Phasellus ornare, lorem at molestie vehicula, justo ante fermentum elit, vel mollis dolor ex ut lectus. Aenean nunc neque, feugiat ac ultrices in, aliquet id est. Donec tempus consequat fringilla. Phasellus tincidunt nisl vitae purus bibendum lacinia. Sed rutrum efficitur fermentum. Maecenas finibus libero sollicitudin augue rutrum malesuada. Suspendisse sit amet dapibus enim, dignissim pharetra augue.</p>
-        <p>Phasellus pellentesque commodo nisi, eget feugiat libero elementum sed. In eget enim erat. Nulla eu metus tristique, pellentesque massa a, cursus lectus. Phasellus pulvinar, libero a mattis sodales, neque purus vulputate nibh, ut aliquet sapien lorem a risus. Cras eu tristique ipsum. Sed vel pretium tortor. Maecenas porttitor varius nisl lacinia aliquet. Aenean nisl purus, imperdiet at pulvinar vitae, bibendum at orci. Suspendisse vel mi sit amet neque scelerisque cursus ac vitae velit. Aliquam efficitur sed risus et placerat. Donec accumsan magna magna, a laoreet erat bibendum sed.</p>
-        <p>Nunc cursus enim sodales sem pellentesque, a sagittis eros cursus. Nam libero ex, accumsan sit amet feugiat eu, consequat sed ligula. Aliquam eu maximus risus, a eleifend mauris. Praesent id finibus elit. Ut ac neque eleifend, vehicula massa ut, convallis ante. Donec sit amet erat vel libero rutrum vulputate eu sit amet dolor. Curabitur hendrerit nisl at libero gravida, a maximus nisi tincidunt. Morbi dictum gravida nulla. Fusce ac dignissim orci. </p>
-    
-        <h1 class="header fade-in-up stagger-3" id="duvidas">Dúvidas Frequentes</h1>
-        <hr class="fade-in-up stagger-3">
-        <div class="accordion">
-            <div class="accordion-item">
-                <button class="accordion-header">
-                <span>O que é este serviço?</span>
-                <span class="icon">+</span>
-                </button>
+<!-- SOBRE MIM -->
+<section class="sobre" id="sobre">
+  <div class="wrap grid">
+    <div class="fade">
+      <h2 style="margin-bottom:22px">Sobre <i>mim</i></h2>
+      <p>Sou psicóloga, com atuação clínica e foco em atendimento de adultos, especialmente em casos relacionados a <b>Autismo (TEA), TDAH, Altas Habilidades/Superdotação (AH/SD), dupla excepcionalidade, transtornos de ansiedade e transtornos depressivos</b>.</p>
+      <p>Busco me manter atualizada com as pesquisas e inovações da área. Meu compromisso é oferecer um atendimento ético, acolhedor, fundamentado em evidências científicas e sem julgamentos. Como cada pessoa é única, o atendimento é cuidadosamente adaptado às suas necessidades, ao seu ritmo e ao seu contexto.</p>
+      <p>Atualmente, <b>trabalho com psicoterapia, especialmente com pessoas neurodivergentes</b>, tanto presencial (em Curitiba/PR) quanto online.</p>
+      <p>Antes da Psicologia, me formei em Administração e atuei por 15 anos em áreas administrativas e de Recursos Humanos. Essa experiência me proporcionou uma compreensão mais refinada das dinâmicas de trabalho e das organizações, o que contribui para o cuidado de demandas ligadas à carreira e às relações profissionais.</p>
+    </div>
+    <div class="ph fade"><img src="assets/images/pictures/foto3.jpg" alt="Retrato de Caroline Amorim" loading="lazy"></div>
+  </div>
+</section>
 
-                <div class="accordion-content">
-                <p>
-                    Este serviço oferece uma solução simples e eficiente para facilitar
-                    o gerenciamento do seu projeto.
-                </p>
-                </div>
-            </div>
+<!-- DÚVIDAS -->
+<section id="duvidas">
+  <div class="wrap">
+    <h2 style="margin-bottom:20px">Dúvidas <i>frequentes</i></h2>
+    <details open><summary>Como funciona a primeira sessão?</summary><p>A primeira sessão é um momento inicial de acolhimento, escuta e compreensão da sua demanda. É o espaço para conhecer a sua história, entender as dificuldades que você está enfrentando, alinhar expectativas e esclarecer dúvidas sobre o processo terapêutico. <b>A partir desse primeiro contato, começamos a construir juntos os objetivos da terapia.</b></p></details>
+    <details><summary>Quanto tempo dura o processo terapêutico?</summary><p>Não existe um tempo fixo — depende dos seus objetivos e do seu ritmo. A terapia comportamental é prática e focada, e ao longo do processo avaliamos juntos a evolução.</p></details>
+    <details><summary>Como funciona o pagamento? A primeira sessão é paga?</summary><p>A primeira sessão pode ser paga de forma avulsa, permitindo que você tenha um contato inicial com o meu trabalho e saiba como irei conduzir o seu acompanhamento com base no que trouxer nessa primeira sessão. Decidindo continuar com o processo de psicoterapia, o pagamento passa a ser feito de forma mensal, com os horários reservados para você. Para consultar valores e disponibilidade de horários, basta entrar em contato via WhatsApp.</p></details>
+  </div>
+</section>
 
-            <div class="accordion-item">
-                <button class="accordion-header">
-                <span>Como funciona?</span>
-                <span class="icon">+</span>
-                </button>
+<!-- CONTATO -->
+<section id="contato" style="padding-top:0;padding-bottom:0">
+  <div class="wrap">
+    <div class="cta fade">
+      <svg class="petal" style="left:-40px;top:-40px;transform:rotate(-30deg)"><use href="#petal"/></svg>
+      <svg class="petal" style="right:-50px;bottom:-60px;transform:rotate(150deg)"><use href="#petal"/></svg>
+      <h2>O primeiro passo pode ser <i>agora</i></h2>
+      <a class="btn" href="https://wa.me/5541998654031" style="background:var(--v);color:var(--l);margin-top:28px"><svg><use href="#i-wa"/></svg>Fale comigo no WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-                <div class="accordion-content">
-                <p>
-                    Basta escolher a opção desejada e seguir as instruções apresentadas
-                    na plataforma.
-                </p>
-                </div>
-            </div>
+<!-- RODAPÉ -->
+<footer>
+  <div class="wrap">
+    <div class="ft">
+      <div>
+        <div style="display:flex;align-items:center;gap:8px"><svg style="width:52px;height:52px;color:var(--l)"><use href="#l3"/></svg><div><div class="gd">Caroline Amorim</div><div class="al">Psicóloga</div></div></div>
+        <p style="margin-top:16px;max-width:320px">Um espaço de escuta, cuidado e acolhimento para adultos, presencial e online.</p>
+        <p style="margin-top:10px;font-size:12.5px;letter-spacing:.25em">CRP 08/48205</p>
+      </div>
+      <div><div class="lb">Contato</div>
+        <ul>
+          <li><svg><use href="#i-wa"/></svg>(41) 99865-4031</li>
+          <li><svg><use href="#i-mail"/></svg>contato@carolineamorim.com.br</li>
+          <li><svg><use href="#i-ig"/></svg>@carolineamorimpsi</li>
+        </ul>
+      </div>
+      <div><div class="lb">Consultório</div>
+        <ul><li><svg><use href="#i-pin"/></svg>Av. Cândido de Abreu, 427<br>Centro Cívico · Curitiba/PR</li></ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Caroline Amorim · Psicóloga Clínica</span><span>Curitiba/PR</span></div>
+  </div>
+</footer>
 
-            <div class="accordion-item">
-                <button class="accordion-header">
-                <span>Quanto custa?</span>
-                <span class="icon">+</span>
-                </button>
+<a class="wa" href="https://wa.me/5541998654031" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
 
-                <div class="accordion-content">
-                <p>
-                    Os preços variam de acordo com o plano escolhido. Consulte nossas
-                    opções para encontrar a melhor alternativa para você.
-                </p>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header">
-                <span>Posso cancelar quando quiser?</span>
-                <span class="icon">+</span>
-                </button>
-
-                <div class="accordion-content">
-                <p>
-                    Sim. Você pode cancelar sua assinatura quando quiser, sem burocracia.
-                </p>
-                </div>
-            </div>
-            </div>
-    
-        <h1 class="header fade-in-up stagger-3" id="contato">Fale Comigo</h1>
-        <hr class="fade-in-up stagger-3">
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent varius nunc sit amet eros tincidunt consectetur. Donec facilisis fringilla faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Donec id sem eu enim pulvinar cursus sed id nunc. Nunc pharetra ultrices massa, eget scelerisque quam malesuada ut. Pellentesque a lorem urna. Cras ultricies mi lobortis augue venenatis, non accumsan purus placerat. Donec maximus volutpat porta. In finibus felis eu augue finibus tempor. Proin dictum, ligula quis tristique tincidunt, dui nisi auctor elit, a pellentesque erat dui in ligula. In at quam lobortis elit venenatis aliquam sed a dolor. Curabitur vulputate metus eget lacinia molestie. Ut facilisis metus vitae leo tincidunt volutpat eu quis magna.</p>
-        <p>Nulla a est nec nisi bibendum aliquam scelerisque venenatis nibh. Maecenas malesuada cursus feugiat. Donec vel vulputate urna, sit amet aliquam dui. Praesent feugiat neque non nibh rhoncus finibus. Donec vestibulum lacus sit amet ex finibus dapibus. Nulla quis congue est, a tempus velit. Curabitur sed justo urna.</p>
-        <p>Nam varius erat id lorem tincidunt lacinia eget non elit. Vestibulum eget arcu a risus molestie vestibulum. Cras fermentum nisl et dictum ullamcorper. Ut lobortis quam vel scelerisque egestas. Duis sed tristique mauris. Etiam commodo, mi ut laoreet vulputate, leo purus lobortis mauris, ut venenatis turpis felis eget tellus. Vivamus fringilla varius massa non tristique. Phasellus ornare, lorem at molestie vehicula, justo ante fermentum elit, vel mollis dolor ex ut lectus. Aenean nunc neque, feugiat ac ultrices in, aliquet id est. Donec tempus consequat fringilla. Phasellus tincidunt nisl vitae purus bibendum lacinia. Sed rutrum efficitur fermentum. Maecenas finibus libero sollicitudin augue rutrum malesuada. Suspendisse sit amet dapibus enim, dignissim pharetra augue.</p>
-        <p>Phasellus pellentesque commodo nisi, eget feugiat libero elementum sed. In eget enim erat. Nulla eu metus tristique, pellentesque massa a, cursus lectus. Phasellus pulvinar, libero a mattis sodales, neque purus vulputate nibh, ut aliquet sapien lorem a risus. Cras eu tristique ipsum. Sed vel pretium tortor. Maecenas porttitor varius nisl lacinia aliquet. Aenean nisl purus, imperdiet at pulvinar vitae, bibendum at orci. Suspendisse vel mi sit amet neque scelerisque cursus ac vitae velit. Aliquam efficitur sed risus et placerat. Donec accumsan magna magna, a laoreet erat bibendum sed.</p>
-        <p>Nunc cursus enim sodales sem pellentesque, a sagittis eros cursus. Nam libero ex, accumsan sit amet feugiat eu, consequat sed ligula. Aliquam eu maximus risus, a eleifend mauris. Praesent id finibus elit. Ut ac neque eleifend, vehicula massa ut, convallis ante. Donec sit amet erat vel libero rutrum vulputate eu sit amet dolor. Curabitur hendrerit nisl at libero gravida, a maximus nisi tincidunt. Morbi dictum gravida nulla. Fusce ac dignissim orci. </p>
-
-        <footer class="foot">
-            <div class="flex-container">
-                <div class="column">
-                    <p><strong>Caroline Amorim</strong></p>
-                    <p>Psicóloga Clínica | CRP 08/48025</p>
-                </div>
-
-                <div class="vertical-bar"></div>
-
-                <div class="column right">
-                <div class="contact-row" id="contato">
-                    <p class="info"><a target="_blank" href="https://wa.me/5541998654031?text=Oi!">(41) 99865-4031</a></p>
-                </div>
-
-                <div class="contact-row" id="email">
-                    <p class="info"><a href="mailto:contato@carolineamorim.com.br">contato@carolineamorim.com.br</a></p>
-                </div>
-
-                <div class="contact-row" id="endereco">
-                    <p class="info"><a href="https://g.page/r/CReBu1kJOLT-EBM" target="_blank">Av. Cândido de Abreu, 427 - Centro Cívico - Curitiba</a></p>
-                </div>
-                </div>
-            </div>
-        </footer>
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.fade').forEach(el=>io.observe(el));
+</script>
 </body>
 </html>
